@@ -1,0 +1,72 @@
+# README
+
+## Title 
+Estimating the time-varying transmission rate of Highly Pathogenic Avian Influenza virus in Newfoundland seabirds using a SEIRD model 
+
+---
+
+## Summary
+
+The transmission rate of Highly Pathogenic Avian Influenza (HPAI) virus in wild birds is difficult to estimate and can vary over time due to species, spatial or seasonal differences. The purpose of this research is to develop a SEIRD (Susceptible-Exposed-Infectious-Recovered-Dead) compartmental model to simulate the spread of HPAI virus among NFLD seabirds in 2022 and estimate the time-varying transmission rate. These estimates can inform what types of values and temporal patterns are reasonable for modelling future scenarios. 
+
+---
+
+## Repository overview
+This repository contains the code and outputs used to estimate the time-varying transmission rate of HPAI virus in NFLD seabirds using our SEIRD model.
+---
+
+### Code version
+- R version 4.4.1
+
+### Packages versions
+- patchwork (1.3.2)
+- dplyr (1.1.4)
+- ggplot2 (4.0.1)
+- ggtext (0.1.2)
+- scales (1.4.0)
+- ggrepel (0.9.6)
+- grid (4.4.1)
+- here (1.0.2)
+- macpan2 (3.5.1)
+- tidyverse (2.0.0)
+- zoo (1.8.14)
+- stringr (1.6.0)
+- splines (4.4.1)
+- viridis (0.6.5)
+- ggspatial (1.1.10)
+- rnaturalearth (1.1.0)
+- rnaturalearthdata (1.0.0.9000)
+- rnaturalearthhires (1.0.0.9000)
+- gganimate (1.0.11)
+- gifski (1.32.0.2)
+- transformr (0.1.5)
+- cowplot (1.2.0)
+- cli (3.6.5.9000)
+- purrr (1.2.0)
+- DiagrammeR (1.0.11)
+- DiagrammeRsvg (0.1)
+- rsvg (2.7.0)
+---
+
+### File descriptions
+
+### Code
+The `Code/` directory contains the following scripts:
+- `NFLD.R`: Spatial distribution of seabird mortality associated with the 2022 HPAI virus outbreak
+- `SEIRD.R`: SEIRD model for the spread of HPAI virus in Newfoundland seabirds
+- `SEIRD_Connectivity.R`: SEIRD model with inter-patch connectivity matrix
+- `Labrador.R`: Proposed patches for Labrador
+- `SEIRD_flow.R`: Flow diagram for SEIRD model 
+
+---
+
+## Instructions to run the software
+1. Install R version 4.4.1.
+2. Install required R packages listed above.
+3. Set the working directory to the repository root.
+4. Run the scripts in the following order:
+   - `NFLD.R`
+   - `SEIRD.R`
+   - `SEIRD_Connectivity.R`
+   - `Labrador.R`
+   - `SEIRD_flow.R`
