@@ -12,7 +12,7 @@ The transmission rate of Highly Pathogenic Avian Influenza (HPAI) virus in wild 
 ---
 
 ## Repository overview
-This repository contains the code and outputs used to estimate the time-varying transmission rate of HPAI virus in NFLD seabirds using our SEIRD model.
+This repository contains the code used to estimate the time-varying transmission rate of HPAI virus in NFLD seabirds using our SEIRD model.
 ---
 
 ### Code version
