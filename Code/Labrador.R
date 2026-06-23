@@ -2,6 +2,10 @@
 # Proposed Labrador patches
 # ============================================================
 
+# ============================================================
+# Libraries and setup
+# ============================================================
+
 library(sf)
 library(dplyr)
 library(ggplot2)
@@ -179,7 +183,7 @@ p_full <- ggplot() +
 # Save
 # ============================================================
 ggsave(
-  "IBAs_NL_Labrador_FINAL.png",
+  "Fig_3.7.png",
   p_full,
   width = 10,
   height = 8,
