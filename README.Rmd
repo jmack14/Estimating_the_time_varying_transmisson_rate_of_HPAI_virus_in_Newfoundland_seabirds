@@ -27,7 +27,6 @@ This repository contains the code used to estimate the time-varying transmission
 - scales (1.4.0)
 - ggrepel (0.9.6)
 - grid (4.4.1)
-- here (1.0.2)
 - macpan2 (3.5.1)
 - tidyverse (2.0.0)
 - zoo (1.8.14)
