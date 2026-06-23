@@ -43,6 +43,8 @@ This repository contains the code and data used to estimate the time-varying tra
 - cowplot (1.2.0)
 - cli (3.6.5.9000)
 - purrr (1.2.0)
+- geosphere (1.6.5)
+- reshape2 (1.4.5)
 ---
 
 ### File descriptions
