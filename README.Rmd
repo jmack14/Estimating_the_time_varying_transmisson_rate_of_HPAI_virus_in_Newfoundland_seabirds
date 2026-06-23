@@ -19,6 +19,7 @@ This repository contains the code used to estimate the time-varying transmission
 - R version 4.4.1
 
 ### Packages versions
+- sf (1.0.23)
 - patchwork (1.3.2)
 - dplyr (1.1.4)
 - ggplot2 (4.0.1)
@@ -43,9 +44,6 @@ This repository contains the code used to estimate the time-varying transmission
 - cowplot (1.2.0)
 - cli (3.6.5.9000)
 - purrr (1.2.0)
-- DiagrammeR (1.0.11)
-- DiagrammeRsvg (0.1)
-- rsvg (2.7.0)
 ---
 
 ### File descriptions
@@ -66,7 +64,7 @@ The `Code/` directory contains the following scripts:
 3. Set the working directory to the repository root.
 4. Run the scripts in the following order:
    - `NFLD.R`
+   - `Delay_distribution.R`
    - `SEIRD.R`
    - `SEIRD_Connectivity.R`
    - `Labrador.R`
-   - `SEIRD_flow.R`
