@@ -51,10 +51,10 @@ This repository contains the code used to estimate the time-varying transmission
 ### Code
 The `Code/` directory contains the following scripts:
 - `NFLD.R`: Spatial distribution of seabird mortality associated with the 2022 HPAI virus outbreak
+- `Delay_distribution.R`: Negative binomial delay distribution for Northern Gannet aerial survey observations
 - `SEIRD.R`: SEIRD model for the spread of HPAI virus in Newfoundland seabirds
 - `SEIRD_Connectivity.R`: SEIRD model with inter-patch connectivity matrix
 - `Labrador.R`: Proposed patches for Labrador
-- `SEIRD_flow.R`: Flow diagram for SEIRD model 
 
 ---
 
