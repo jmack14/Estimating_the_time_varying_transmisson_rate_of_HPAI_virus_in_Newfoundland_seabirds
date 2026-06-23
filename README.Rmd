@@ -12,7 +12,7 @@ The transmission rate of Highly Pathogenic Avian Influenza (HPAI) virus in wild 
 ---
 
 ## Repository overview
-This repository contains the code used to estimate the time-varying transmission rate of HPAI virus in NFLD seabirds using our SEIRD model.
+This repository contains the code and data used to estimate the time-varying transmission rate of HPAI virus in NFLD seabirds using our SEIRD model.
 ---
 
 ### Code version
@@ -55,13 +55,19 @@ The `Code/` directory contains the following scripts:
 - `SEIRD_Connectivity.R`: SEIRD model with inter-patch connectivity matrix
 - `Labrador.R`: Proposed patches for Labrador
 
+### Data
+The `Data/` directory contains the following files:
+- `Data S1. Reported mortalities and morbidities in eastern Canada 2022.csv`: Reported wild bird mortalities and morbidities associated with the 2022 HPAI virus outbreak in eastern Canada
+- `Important Bird and Biodiversity Areas of Canada Zones importantes pour la conservation des oiseaux et de la biodiversité du Can.kml`: Spatial boundaries of Important Bird and Biodiversity Areas used for mapping and patch delineation
+- `NFLD_mortalities_7patch_with_backdistributed_gannets_NB.csv`: Newfoundland and Labrador seabird mortality dataset used for SEIRD model fitting, including negative binomial delay distribution for Northern Gannet aerial survey observations
 ---
 
 ## Instructions to run the software
 1. Install R version 4.4.1.
 2. Install required R packages listed above.
 3. Set the working directory to the repository root.
-4. Run the scripts in the following order:
+4. Ensure the required data files are present in the `Data/` directory (see File descriptions for full list of data files).
+5. Run the scripts in the following order:
    - `NFLD.R`
    - `Delay_distribution.R`
    - `SEIRD.R`
