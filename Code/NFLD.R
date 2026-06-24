@@ -85,8 +85,7 @@ my_kml_nl <- my_kml_nl %>%
   group_by(patch_name) %>%
   summarise(geometry = st_union(geometry), .groups = "drop") %>%
   mutate(
-    patch_id = factor(row_number()),
-    color    = hue_pal()(n())
+    color = hue_pal()(n())
   )
 
 patch_colors <- setNames(my_kml_nl$color, my_kml_nl$patch_name)
@@ -156,7 +155,6 @@ idx <- st_nearest_feature(points_sf, my_kml_nl)
 
 points_sf <- points_sf %>%
   mutate(
-    patch_id   = my_kml_nl$patch_id[idx],
     patch_name = my_kml_nl$patch_name[idx],
     color      = my_kml_nl$color[idx]
   )
@@ -181,7 +179,7 @@ points_model_df <- points_sf %>%
     Lat  = st_coordinates(points_sf)[,2]
   ) %>%
   select(DateObserved, CommonName, TotalObserved,
-         MortBin, patch_id, patch_name, Long, Lat)
+         MortBin, patch_name, Long, Lat)
 
 write.csv(points_model_df, "NFLD_mortalities_7patch.csv", row.names = FALSE)
 
