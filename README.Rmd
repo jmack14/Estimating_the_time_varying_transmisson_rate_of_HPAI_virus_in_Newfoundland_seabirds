@@ -54,6 +54,7 @@ The `Code/` directory contains the following scripts:
 - `NFLD.R`: Spatial distribution of seabird mortality associated with the 2022 HPAI virus outbreak
 - `Delay_distribution.R`: Negative binomial delay distribution for Northern Gannet aerial survey observations
 - `SEIRD.R`: SEIRD model for the spread of HPAI virus in Newfoundland seabirds
+- `SEIRD_underreporting.R`: SEIRD model for the spread of HPAI virus in Newfoundland seabirds with underreporting scenarios
 - `SEIRD_Connectivity.R`: SEIRD model with inter-patch connectivity matrix
 - `Labrador.R`: Proposed patches for Labrador
 
