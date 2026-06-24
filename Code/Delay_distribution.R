@@ -174,6 +174,9 @@ points_model_df <- bind_rows(
   ) %>%
   arrange(DateObserved, patch_name, CommonName, Source)
 
+points_model_df <- points_model_df %>%
+  mutate(Source = if_else(is.na(Source), "Observed", Source))
+
 # ============================================================
 # Export
 # ============================================================
