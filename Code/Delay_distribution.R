@@ -62,7 +62,6 @@ backfill_patch4 <- data.frame(
     labels = c("1–10","10–50","50–100","100–500","500–1000","1000+"),
     include.lowest = TRUE
   ),
-  patch_id = factor("4"),
   patch_name = "Patch4",
   Long = -53.90,
   Lat = 47.60,
@@ -99,7 +98,6 @@ backfill_patch1 <- data.frame(
     labels = c("1–10","10–50","50–100","100–500","500–1000","1000+"),
     include.lowest = TRUE
   ),
-  patch_id = factor("1"),
   patch_name = "Patch1",
   Long = -54.20,
   Lat = 46.82,
@@ -136,13 +134,16 @@ backfill_patch3 <- data.frame(
     labels = c("1–10","10–50","50–100","100–500","500–1000","1000+"),
     include.lowest = TRUE
   ),
-  patch_id = factor("3"),
   patch_name = "Patch3",
   Long = -52.80,
   Lat = 48.10,
   Source = "Survey_Corrected"
 ) %>%
   filter(TotalObserved > 0)
+
+# ============================================================
+# Combine all data
+# ============================================================
 
 # ============================================================
 # Combine all data
@@ -156,7 +157,6 @@ points_model_df <- bind_rows(
 ) %>%
   mutate(
     DateObserved = as.Date(DateObserved),
-    patch_id = factor(patch_id),
     patch_name = as.character(patch_name),
     CommonName = as.character(CommonName),
     Source = as.character(Source)
@@ -166,7 +166,6 @@ points_model_df <- bind_rows(
     CommonName,
     TotalObserved,
     MortBin,
-    patch_id,
     patch_name,
     Long,
     Lat,
@@ -175,7 +174,9 @@ points_model_df <- bind_rows(
   arrange(DateObserved, patch_name, CommonName, Source)
 
 points_model_df <- points_model_df %>%
-  mutate(Source = if_else(is.na(Source), "Observed", Source))
+  mutate(
+    Source = if_else(is.na(Source), "Observed", Source)
+  )
 
 # ============================================================
 # Export

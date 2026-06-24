@@ -5,7 +5,6 @@
 # ============================================================
 # Libraries
 # ============================================================
-
 library(sf)
 library(dplyr)
 library(ggplot2)
@@ -30,7 +29,6 @@ sf::sf_use_s2(FALSE)
 # ============================================================
 # Base map (Newfoundland & Labrador)
 # ============================================================
-
 map_nl <- ne_states(country = "canada", returnclass = "sf") %>%
   filter(name == "Newfoundland and Labrador")
 
@@ -39,7 +37,6 @@ bbox_nl_sfc <- st_as_sfc(st_bbox(map_nl))
 # ============================================================
 # Mortality data
 # ============================================================
-
 mortality_data_path <- "C:/Users/ER/Desktop/Fall_2025/Grad_school/thesis/Chp_2/Chp2_code/Data S1. Reported mortalities and morbidities in eastern Canada 2022.csv"
 
 filtered_data <- read.csv(mortality_data_path, stringsAsFactors = FALSE) %>%
@@ -57,7 +54,6 @@ filtered_data <- read.csv(mortality_data_path, stringsAsFactors = FALSE) %>%
 # ============================================================
 # IBA polygons
 # ============================================================
-
 my_kml_nl <- st_read(
   "C:/Users/ER/Desktop/Fall_2025/Grad_school/thesis/Chp_2/Chp2_code/Important Bird and Biodiversity Areas of Canada  Zones importantes pour la conservation des oiseaux et de la biodiversité du Can.kml",
   quiet = TRUE
@@ -98,7 +94,6 @@ patch_colors <- setNames(my_kml_nl$color, my_kml_nl$patch_name)
 # ============================================================
 # Seabird ecological reserves
 # ============================================================
-
 seabird_sf <- data.frame(
   Name = c("Cape St. Mary's","Witless Bay","Baccalieu Island",
            "Funk Island","Hare Bay","Lawn Islands"),
@@ -121,9 +116,8 @@ west_coast_sf <- my_kml_nl %>%
 label_points <- bind_rows(seabird_sf, west_coast_sf)
 
 # ============================================================
-# Plot IBA map: Fig 3.1
+# IBA map
 # ============================================================
-
 p_iba <- ggplot() +
   geom_sf(data = map_nl, fill = "grey92", color = "black", linewidth = 0.5) +
   geom_sf(data = my_kml_nl, aes(fill = patch_name),
@@ -149,12 +143,11 @@ p_iba <- ggplot() +
     axis.title = element_blank()
   )
 
-ggsave("Fig_3.1.png", plot = p_iba, width = 8, height = 6, dpi = 600, bg = "white")
+ggsave("IBAs.png", plot = p_iba, width = 8, height = 6, dpi = 600, bg = "white")
 
 # ============================================================
 # Points → sf + patch assignment
 # ============================================================
-
 points_sf <- st_as_sf(filtered_data,
                       coords = c("Long","Lat"),
                       crs = st_crs(my_kml_nl))
@@ -193,9 +186,8 @@ points_model_df <- points_sf %>%
 write.csv(points_model_df, "NFLD_mortalities_7patch.csv", row.names = FALSE)
 
 # ============================================================
-# Cumulative animation map: Fig A2.1
+# Animation (cumulative)
 # ============================================================
-
 points_sf <- points_sf %>%
   arrange(DateObserved) %>%
   mutate(anim_id = row_number())
@@ -219,4 +211,4 @@ p_anim <- ggplot() +
   labs(title = "{current_frame}")
 
 animate(p_anim, fps = 5, duration = 15, width = 800, height = 700)
-anim_save("Fig_A2.1.gif")
+anim_save("NFLD_Mortalities_7patch_Cumulative.gif")
