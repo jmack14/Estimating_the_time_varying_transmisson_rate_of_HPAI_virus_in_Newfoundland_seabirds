@@ -73,7 +73,7 @@ M_df$ReceiverPatch <- factor(M_df$ReceiverPatch, levels = patch_levels)
 M_df$SourcePatch   <- factor(M_df$SourcePatch, levels = patch_levels)
 
 # ------------------------------------------------------------
-# Heatmap plot: Fig_3.6
+# Heatmap plot: Fig_3.7
 # ------------------------------------------------------------
 conn_plot <- ggplot(M_df, aes(x = SourcePatch, y = ReceiverPatch, fill = Weight)) +
   geom_tile(color = "white", linewidth = 0.3) +
@@ -89,5 +89,5 @@ conn_plot <- ggplot(M_df, aes(x = SourcePatch, y = ReceiverPatch, fill = Weight)
     legend.title = element_text(face = "bold")
   )
 
-ggsave("Fig_3.6.png",
+ggsave("Fig_3.7.png",
        conn_plot, width = 8, height = 6, dpi = 300)
