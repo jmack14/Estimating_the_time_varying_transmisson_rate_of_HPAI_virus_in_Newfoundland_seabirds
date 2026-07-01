@@ -58,7 +58,7 @@ The `Code/` directory contains the following scripts:
 - `Data_interpolation.R`: Aggregation and linear interpolation of cumulative mortality observations to produce daily mortality time series for SEIRD model fitting
 - `SEIRD.R`: SEIRD model for the spread of HPAI virus in Newfoundland seabirds
 - `SEIRD_underreporting.R`: SEIRD model for the spread of HPAI virus in Newfoundland seabirds with underreporting scenarios
-- `SEIRD_Connectivity.R`: SEIRD model with inter-patch connectivity matrix
+- `Connectivity_matrix.R`: Inter-patch connectivity matrix
 - `Labrador.R`: Proposed patches for Labrador
 
 ### Data
@@ -79,5 +79,5 @@ The `Data/` directory contains the following files:
    - `Delay_distribution.R`
    - `Data_interpolation.R`
    - `SEIRD.R`
-   - `SEIRD_Connectivity.R`
+   - `Connectivity_matrix.R`
    - `Labrador.R`
