@@ -200,23 +200,78 @@ points_sf <- points_sf %>%
   arrange(DateObserved) %>%
   mutate(anim_id = row_number())
 
-p_anim <- ggplot() +
-  geom_sf(data = map_nl, fill = "grey95") +
-  geom_sf(data = my_kml_nl, aes(fill = patch_name),
-          alpha = 0.35, color = "black") +
+mortalities_anim_nf <- ggplot() +
+  
+  geom_sf(data = map_nl, fill = "grey95", color = "black") +
+  
+  geom_sf(data = my_kml_nl,
+          aes(fill = patch_name),
+          color = "black",
+          alpha = 0.35) +
+  
   geom_sf(data = points_sf,
-          aes(color = patch_name, shape = Species, size = MortBin),
+          aes(color = patch_name,
+              shape = Species,
+              size = MortBin),
           alpha = 0.85) +
+  
   scale_fill_manual(values = patch_colors, guide = "none") +
   scale_color_manual(values = patch_colors, guide = "none") +
-  scale_shape_manual(values = c("Northern Gannet"=16,"Common Murre"=17)) +
-  scale_size_manual(values = size_values, name = "Mortalities") +
-  scale_x_continuous(breaks = seq(-60,-52,2)) +
-  scale_y_continuous(breaks = seq(46,52,1)) +
-  coord_sf(xlim = c(-60,-52), ylim = c(46,52), expand = FALSE) +
+  
+  scale_shape_manual(values = c(
+    "Northern Gannet" = 16,
+    "Common Murre"    = 17
+  )) +
+  
+  scale_size_manual(
+    name = "Mortalities",
+    values = size_values
+  ) +
+scale_x_continuous(breaks = seq(-60, -52, by = 2)) +
+  scale_y_continuous(breaks = seq(46, 52, by = 1)) +
+  
+  coord_sf(
+    xlim = c(-60, -52),
+    ylim = c(46, 52),
+    expand = FALSE
+  ) +
+  
   theme_bw() +
+  theme(
+    panel.background = element_rect(fill = "AliceBlue"),
+    axis.text.x = element_text(size = 12, color = "black"),
+    axis.text.y = element_text(size = 12, color = "black"),
+    axis.ticks = element_line(color = "black"),
+    axis.title = element_blank(),
+    legend.text  = element_text(size = 18),
+    legend.title = element_text(face = "bold", size = 20),
+    
+    legend.key.size  = unit(1.2, "cm"),
+    legend.key.width = unit(1.6, "cm"),
+    
+    legend.background = element_blank(),
+    legend.key = element_rect(fill = "transparent", color = "transparent"),
+    
+    plot.title = element_text(face = "bold", size = 18)
+  ) +
+  
+  guides(
+    shape = guide_legend(override.aes = list(size = 7)),
+    size  = guide_legend(override.aes = list(alpha = 1))
+  ) +
+  
   transition_manual(frames = DateObserved, cumulative = TRUE) +
-  labs(title = "{current_frame}")
+  labs(
+    title = "{current_frame}",
+    shape = NULL
+  )
 
-animate(p_anim, fps = 5, duration = 15, width = 800, height = 700)
+animate(
+  mortalities_anim_nf,
+  fps = 5,
+  duration = 15,
+  width = 800,
+  height = 700
+)
+
 anim_save("Fig_A2.1.gif")

@@ -265,7 +265,7 @@ time_lookup <- dat3 %>%
   distinct(patch, species, time, Date)
 
 # ============================================================
-# Extract beta (single source of truth)
+# Extract beta 
 # ============================================================
 
 beta_data <- fitted_data %>%
@@ -292,7 +292,7 @@ beta_data <- beta_data %>%
 
 
 # ============================================================
-# Global scaling (DISPLAY ONLY)
+# Global scaling 
 # ============================================================
 
 beta_ymax <- quantile(beta_data$beta, 0.95, na.rm = TRUE)
@@ -312,7 +312,7 @@ beta_theme <- theme_bw(base_size = 18) +
   )
 
 # ============================================================
-# Beta distribution by species: Fig 3.6A
+# Beta distribution by species: Fig 3.8A
 # ============================================================
 
 p_beta_species <- ggplot(beta_data, aes(scenario, beta, fill = scenario)) +
@@ -348,7 +348,7 @@ p_beta_species <- ggplot(beta_data, aes(scenario, beta, fill = scenario)) +
   )
 
 ggsave(
-  "Fig_3.6A.png",
+  "Fig_3.8A.png",
   p_beta_species,
   width = 8,
   height = 5,
@@ -356,7 +356,7 @@ ggsave(
 )
 
 # ============================================================
-# Beta distribution by patch: Fig 3.6B
+# Beta distribution by patch: Fig 3.8B
 # ============================================================
 
 p_beta_patch <- ggplot(beta_data, aes(scenario, beta, fill = scenario)) +
@@ -394,7 +394,7 @@ p_beta_patch <- ggplot(beta_data, aes(scenario, beta, fill = scenario)) +
   )
 
 ggsave(
-  "Fig_3.6B.png",
+  "Fig_3.8B.png",
   p_beta_patch,
   width = 12,
   height = 8,
@@ -415,7 +415,7 @@ beta_plot_data <- beta_data %>%
   )
 
 # ============================================================
-# STEP STRUCTURE
+# Step structure
 # ============================================================
 
 beta_step <- beta_plot_data %>%
@@ -426,7 +426,7 @@ beta_step <- beta_plot_data %>%
   ungroup()
 
 # ============================================================
-# Beta summaries (NOW CONSISTENT WITH PLOTS)
+# Beta summaries 
 # ============================================================
 
 beta_summary_patch <- beta_data %>%
