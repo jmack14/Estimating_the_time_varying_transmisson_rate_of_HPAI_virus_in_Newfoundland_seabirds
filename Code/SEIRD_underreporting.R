@@ -312,7 +312,7 @@ beta_theme <- theme_bw(base_size = 18) +
   )
 
 # ============================================================
-# Beta distribution by species: Fig 3.8A
+# Beta distribution by species: Fig 3.7A
 # ============================================================
 
 p_beta_species <- ggplot(beta_data, aes(scenario, beta, fill = scenario)) +
@@ -348,7 +348,7 @@ p_beta_species <- ggplot(beta_data, aes(scenario, beta, fill = scenario)) +
   )
 
 ggsave(
-  "Fig_3.8A.png",
+  "Fig_3.7A.png",
   p_beta_species,
   width = 8,
   height = 5,
@@ -356,7 +356,7 @@ ggsave(
 )
 
 # ============================================================
-# Beta distribution by patch: Fig 3.8B
+# Beta distribution by patch: Fig 3.7B
 # ============================================================
 
 p_beta_patch <- ggplot(beta_data, aes(scenario, beta, fill = scenario)) +
@@ -394,7 +394,7 @@ p_beta_patch <- ggplot(beta_data, aes(scenario, beta, fill = scenario)) +
   )
 
 ggsave(
-  "Fig_3.8B.png",
+  "Fig_3.7B.png",
   p_beta_patch,
   width = 12,
   height = 8,

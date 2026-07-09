@@ -126,7 +126,7 @@ patch_colors <- setNames(
 )
 
 # ============================================================
-# Plot proposed Labrador patches: Fig 3.4
+# Plot proposed Labrador patches: Fig 3.8
 # ============================================================
 p_full <- ggplot() +
   
@@ -183,7 +183,7 @@ p_full <- ggplot() +
 # Save
 # ============================================================
 ggsave(
-  "Fig_3.4.png",
+  "Fig_3.8.png",
   p_full,
   width = 10,
   height = 8,

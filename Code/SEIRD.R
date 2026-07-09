@@ -339,7 +339,7 @@ death_plot_data <- fit_D %>%
   ungroup()
 
 # ============================================================
-# Death plot: Fig 3.5
+# Death plot: Fig 3.4
 # ============================================================
 
 p_deaths <- ggplot(death_plot_data) +
@@ -388,7 +388,7 @@ p_deaths <- ggplot(death_plot_data) +
   )
 
 ggsave(
-  "Fig_3.5.png",
+  "Fig_3.4.png",
   p_deaths,
   width = 16,
   height = 10,
@@ -418,7 +418,7 @@ beta_plot_data <- beta_data %>%
   )
 
 # ============================================================
-# Beta timeseries: Fig 3.6
+# Beta timeseries: Fig 3.5
 # ============================================================
 
 july_start <- min(
@@ -464,7 +464,7 @@ p_beta <-
   beta_theme
 
 ggsave(
-  "Fig_3.6.png",
+  "Fig_3.5.png",
   p_beta,
   width = 10,
   height = 6,
@@ -472,7 +472,7 @@ ggsave(
 )
 
 # ============================================================
-# Beta distribution by species: Fig 3.7A
+# Beta distribution by species: Fig 3.6A
 # ============================================================
 
 beta_dist <- beta_plot_data %>%
@@ -505,11 +505,11 @@ p_beta_species <- ggplot(beta_dist,
     plot.tag = element_text(face = "bold")
   )
 
-ggsave("Fig_3.7A.png",
+ggsave("Fig_3.6A.png",
        p_beta_species, width = 7, height = 5, dpi = 300)
 
 # ============================================================
-# Beta distribution by patch: Fig 3.7B
+# Beta distribution by patch: Fig 3.6B
 # ============================================================
 
 p_beta_patch <- ggplot(beta_dist,
@@ -538,7 +538,7 @@ p_beta_patch <- ggplot(beta_dist,
     plot.tag = element_text(face = "bold")
   )
 
-ggsave("Fig_3.7B.png",
+ggsave("Fig_3.6B.png",
        p_beta_patch, width = 12, height = 8, dpi = 300)
 
 # ============================================================
